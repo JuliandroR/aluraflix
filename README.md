@@ -3,9 +3,11 @@
 
 Projeto React desenvolvido durante a semana de Imersão React Alura :smile:
 
-## Linguagens e libs utilizadas :books:
+## Libs utilizadas :books:
 - React
 - Styled Components
+- React Router DOM
+- React Slick
 
 
 ## Aulas Realizadas
