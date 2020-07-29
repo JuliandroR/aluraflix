@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const FooterBase = styled.footer`
   background: var(--black);
@@ -13,4 +12,8 @@ export const FooterBase = styled.footer`
   @media (max-width: 800px) {
     margin-bottom: 50px;
   }
+`;
+
+export const ImageLogo = styled.img`
+  width: 20%;
 `;

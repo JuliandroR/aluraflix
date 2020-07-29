@@ -14,8 +14,8 @@ function getYouTubeId(youtubeURL) {
     );
   }
   
-  export default function BannerMain({ videoTitle, videoDescription, url }) {
-    console.log("Aqui: "+url);
+  export default function BannerMain({ videoTitle, videoDescription }) {
+   let url = "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
   const youTubeID = getYouTubeId(url);
   const bgUrl = `https://img.youtube.com/vi/${youTubeID}/maxresdefault.jpg`;
 
