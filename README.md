@@ -3,17 +3,20 @@
 
 Projeto React desenvolvido durante a semana de Imersão React Alura :smile:
 
+<a href="https://aluraflix-six.vercel.app"><img src="https://user-images.githubusercontent.com/39134244/88751977-cdcdcb00-d126-11ea-8cb9-933fbaf15085.png" width="100px;" alt=""/>
+
 ## Libs utilizadas :books:
 - React
 - Styled Components
 - React Router DOM
 - React Slick
+- Styled Components
 
 
 ## Aulas Realizadas
 - :heavy_check_mark: Aula 01
 - :heavy_check_mark: Aula 02
-- :question: Aula 03
+- :heavy_check_mark: Aula 03
 - :question: Aula 04
 - :question: Aula 05
 
