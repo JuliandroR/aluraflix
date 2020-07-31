@@ -17,7 +17,7 @@ Projeto React desenvolvido durante a semana de Imersão React Alura :smile:
 - :heavy_check_mark: Aula 01
 - :heavy_check_mark: Aula 02
 - :heavy_check_mark: Aula 03
-- :question: Aula 04
+- :heavy_check_mark: Aula 04
 - :question: Aula 05
 
 ## Desenvolvedor

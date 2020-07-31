@@ -1,47 +1,100 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const ContainerInput = styled.div`
   position: relative;
   margin-bottom: 20px;
 `;
 
-export const Input = styled.input`
-  border: 0;
-  border-bottom: 1px solid #555;
-  background: transparent;
-  width: 100%;
-  padding: 8px 0 5px 0;
-  font-size: 16px;
-  color: #fff;
-  box-sizing: border-box;
+export const Label = styled.label``;
 
+Label.Text = styled.span`
+  color: #E5E5E5;
+  height: 57px;
+  position: absolute; 
+  top: 0;
+  left: 16px;
+  
+  display: flex;
+  align-items: center;
+  
+  transform-origin: 0% 0%;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  
+  transition: .1s ease-in-out;
+`;
+
+export const Input = styled.input`
+  background: #53585D;
+  color: #F5F5F5;
+  display: block;
   width: 100%;
-  height: 3rem;
-  font-size: 1rem;
+  height: 57px;
+  font-size: 18px;
+  
+  outline: 0;
+  border: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #53585D;
+  
+  padding: 16px 16px;
+  margin-bottom: 45px;
+  
+  resize: none;
+  border-radius: 4px;
+  transition: border-color .3s;
+  
+  &:focus {
+    border-bottom-color: var(--primary);
+  }
+  &:focus:not([type='color']) + ${Label.Text} {
+    transform: scale(.6) translateY(-10px);
+  }
+  ${({ value }) => {
+    const hasValue = value.length > 0;
+    return hasValue && css`
+        &:not([type='color']) + ${Label.Text} {
+          transform: scale(.6) translateY(-10px);
+        }
+      `;
+  }
+}
 `;
 
 export const TextArea = styled.textarea`
+  background: #53585D;
+  color: #F5F5F5;
+  display: block;
+  width: 100%;
+  height: 57px;
+  font-size: 18px;
+  
+  outline: 0;
   border: 0;
-  border-bottom: 1px solid #555;
-  background: transparent;
-  width: 100%;
-  padding: 8px 0 5px 0;
-  font-size: 16px;
-  color: #fff;
-  box-sizing: border-box;
-
-  width: 100%;
-  height: 6rem;
-  font-size: 1rem;
-`;
-
-export const Label = styled.label`
-  font-size: 16px;
-  color: #fff;
-  /* pointer-event: none; */
-  transition: all 0.5s ease-in-out;
-
-  width: 100%;
-  height: 3rem;
-  font-size: 1rem;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #53585D;
+  
+  padding: 16px 16px;
+  margin-bottom: 45px;
+  
+  resize: none;
+  border-radius: 4px;
+  transition: border-color .3s;
+  
+  &:focus {
+    border-bottom-color: var(--primary);
+  }
+  &:focus:not([type='color']) + ${Label.Text} {
+    transform: scale(.6) translateY(-10px);
+  }
+  ${({ value }) => {
+    const hasValue = value.length > 0;
+    return hasValue && css`
+        &:not([type='color']) + ${Label.Text} {
+          transform: scale(.6) translateY(-10px);
+        }
+      `;
+  }
+}
 `;
