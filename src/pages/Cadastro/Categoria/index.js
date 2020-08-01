@@ -1,48 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PageDafault from '../../../components/PageDafault';
-import FormField from '../../../components/FormFields';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PageDafault from "../../../components/PageDafault";
+import FormField from "../../../components/FormFields";
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
-    descricao: '',
-    cor: '',
+    nome: "",
+    descricao: "",
+    cor: "",
   };
+  
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
 
-  function setValue(chave, valor) {
-    // chave: nome, descricao, bla, bli
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    });
-  }
-
-  function handleChange(infosDoEvento) {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-    );
-  }
+  const { handleChange, values, clearForm} = useForm(valoresIniciais)
 
   // ============
 
   useEffect(() => {
-    if (window.location.href.includes('localhost')) {
-      const URL = window.location.hostname.includes('localhost')
-        ? 'http://localhost:8080/categorias'
-        : 'https://aluraflixj.herokuapp.com/categorias';
-      fetch(URL)
-        .then(async (response) => {
-          if (response.ok) {
-            const resposta = await response.json();
-            setCategorias(resposta);
-            return;
-          }
-          throw new Error('Não foi possível pegar os dados');
-        });
+    if (window.location.href.includes("localhost")) {
+      const URL = window.location.hostname.includes("localhost")
+        ? "http://localhost:8080/categorias"
+        : "https://aluraflixj.herokuapp.com/categorias";
+      fetch(URL).then(async (response) => {
+        if (response.ok) {
+          const resposta = await response.json();
+          setCategorias(resposta);
+          return;
+        }
+        throw new Error("Não foi possível pegar os dados");
+      });
     }
   }, []);
 
@@ -53,18 +40,15 @@ function CadastroCategoria() {
         {values.nome}
       </h1>
 
-      <form onSubmit={function handleSubmit(infosDoEvento) {
-        infosDoEvento.preventDefault();
+      <form
+        onSubmit={function handleSubmit(infosDoEvento) {
+          infosDoEvento.preventDefault();
 
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
+          setCategorias([...categorias, values]);
 
-        setValues(valoresIniciais);
-      }}
+          clearForm(valoresIniciais);
+        }}
       >
-
         <FormField
           label="Nome da Categoria"
           type="text"
@@ -111,22 +95,16 @@ function CadastroCategoria() {
           </label>
         </div> */}
 
-        <button>
-          Cadastrar
-        </button>
+        <button>Cadastrar</button>
       </form>
 
       <ul>
         {categorias.map((categoria, indice) => (
-          <li key={`${categoria}${indice}`}>
-            {categoria.titulo}
-          </li>
+          <li key={`${categoria}${indice}`}>{categoria.titulo}</li>
         ))}
       </ul>
 
-      <Link to="/">
-        Ir para home
-      </Link>
+      <Link to="/">Ir para home</Link>
     </PageDafault>
   );
 }
